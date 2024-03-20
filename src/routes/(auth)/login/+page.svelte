@@ -15,11 +15,16 @@
 
       <form action="" method="post" use:enhance class="mt-8 space-y-6">
         <div class="space-y-3">
-          <!-- {#if form?.msg}
-      <div class="bg-rose-100 text-rose-500 px-3 py-1 rounded text-sm">
-        <div class="">{form.msg}</div>
-      </div>
-    {/if} -->
+          {#if form?.invalid}
+            <div class="bg-rose-100 text-rose-500 px-3 py-1 rounded text-sm">
+              <div class="">All fields are required</div>
+            </div>
+          {/if}
+          {#if form?.credentials}
+            <div class="bg-rose-100 text-rose-500 px-3 py-1 rounded text-sm">
+              <div class="">Email or Password is incorrect</div>
+            </div>
+          {/if}
           <div class="space-y-1">
             <label for="email">Email</label>
             <div class="relative flex items-center">

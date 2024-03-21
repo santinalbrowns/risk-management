@@ -8,7 +8,7 @@ export async function handle({ event, resolve }) {
         throw redirect(302, '/');
     }
 
-    if (!event.url.pathname.startsWith('/login') || !event.url.pathname.startsWith('/signup')) {
+    if (!event.url.pathname.startsWith('/login')) {
         if (!session) {
             throw redirect(302, '/login');
         }

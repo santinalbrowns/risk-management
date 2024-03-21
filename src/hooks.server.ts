@@ -8,11 +8,7 @@ export async function handle({ event, resolve }) {
         throw redirect(302, '/');
     }
 
-    if (!event.url.pathname.startsWith('/login')) {
-        if (!session) {
-            throw redirect(302, '/login');
-        }
-
+    if (event.url.pathname.startsWith('/') && session) {
         // Fetch user details based on the session ID from the 'session' cookie
          const user = await database.user.findUnique({
              where: { id: Number.parseInt(session) },
